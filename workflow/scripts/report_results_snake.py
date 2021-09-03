@@ -3,9 +3,9 @@
 """ report_results.py
 
     Script to create a report of the results for every sample,
-    from the three programs used in this pipeline: Aldy, Optitype 
-    and GATK. It also states if every necessary position to properly
-    genotype has sufficient coverage.
+    from the three softwares used in this pipeline: Aldy, Optitype 
+    and GATK. It also states if every necessary position to genotype
+    properly has sufficient coverage.
     
     
     ****************************************************************
