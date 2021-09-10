@@ -43,17 +43,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
+This tool was developed with the aim of providing a unified solution to extract relevant PGx information from a set of specific genes in WES data. It brings together specific tools for genotyping HLAs (Optitype) and haplotyping of pharmacogenes (Aldy), together with position-specific variant calling (GATK4) and coverage data (Mosdepth). 
 
 
 ### Built With
 
-* []()
-* []()
-* []()
-
+* [Python]()
 
 
 <!-- GETTING STARTED -->
@@ -73,12 +68,9 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/jucosie/snakemake-pgx.git
    ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
+Or download the ZIP.
 
 
 
