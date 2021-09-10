@@ -1,7 +1,7 @@
 rule mosdepth_bed:
     input:
         bam="mapped/{sample}.sorted.bam",
-        bai="mapped/{sample}.sorted.bam.bai",
+        #bai="mapped/{sample}.sorted.bam.bai",
         bed=config["mosdepth"]["bed"],
     output:
         "mosdepth_bed/{sample}.mosdepth.global.dist.txt",
