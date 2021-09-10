@@ -125,7 +125,11 @@ rule gatk_filter_snps:
     log:
         "logs/gatk/filter/snps.log"
     params:
-        filters="-filter 'QD < 2.0' --filter-name 'QD2' -filter 'QUAL < 30.0' --filter-name 'QUAL30' -filter 'SOR > 3.0' --filter-name 'SOR3' -filter 'FS > 60.0' --filter-name 'FS60' -filter 'MQ < 40.0' --filter-name 'MQ40' -filter 'MQRankSum < -12.5' --filter-name 'MQRankSum-12.5' -filter 'ReadPosRankSum < -8.0' --filter-name 'ReadPosRankSum-8'",
+        filters="-filter 'QD < 2.0' --filter-name 'QD2' -filter 'QUAL < 30.0' \
+        --filter-name 'QUAL30' -filter 'SOR > 3.0' --filter-name 'SOR3' \
+        -filter 'FS > 60.0' --filter-name 'FS60' -filter 'MQ < 40.0' \
+        --filter-name 'MQ40' -filter 'MQRankSum < -12.5' --filter-name 'MQRankSum-12.5' \
+        -filter 'ReadPosRankSum < -8.0' --filter-name 'ReadPosRankSum-8'",
         extra="",  # optional arguments, see GATK docs
         java_opts="-Xmx4g", # optional
     threads: 4
@@ -144,7 +148,9 @@ rule gatk_filter_indels:
     log:
         "logs/gatk/filter/snps.log"
     params:
-        filters="-filter 'QD < 2.0' --filter-name 'QD2' -filter 'QUAL < 30.0' --filter-name 'QUAL30' -filter 'FS > 200.0' --filter-name 'FS200' -filter 'ReadPosRankSum < -20.0' --filter-name 'ReadPosRankSum-20' ",
+        filters="-filter 'QD < 2.0' --filter-name 'QD2' -filter 'QUAL < 30.0' \
+        --filter-name 'QUAL30' -filter 'FS > 200.0' --filter-name 'FS200' \
+        -filter 'ReadPosRankSum < -20.0' --filter-name 'ReadPosRankSum-20' ",
         extra="",  # optional arguments, see GATK docs
         java_opts="-Xmx4g", # optional
     threads: 4
