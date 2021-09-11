@@ -48,7 +48,7 @@ This tool was developed with the aim of providing a unified solution to extract 
 
 ### Built With
 
-* [Python]()
+* Python
 
 
 <!-- GETTING STARTED -->
@@ -58,11 +58,9 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+We have tried to include all the tools necessary for the pipeline to work as wrappers, or via Conda envirotnments. Even so, it is necessary to install locally: 
+* [GATK4 (2.1.0)](https://github.com/broadinstitute/gatk). GATK4 requires Java 8 to run. The path to the gatk wrapper script must be in the user's PATH variable.
+* [Picard] (https://github.com/broadinstitute/picard/releases). The path to the .jar file has to be specified in the configuration file. 
 
 ### Installation
 
