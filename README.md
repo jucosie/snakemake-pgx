@@ -104,7 +104,7 @@ This workflow was designed modularly, so that rules can be executed one at a tim
 
 First, we activate the conda environment:
 ```sh
-conda create -c bioconda -c conda-forge -n snakemake snakemake
+conda activate snakemake
 ```
 If you want to run the workflow locally:
 ```sh
