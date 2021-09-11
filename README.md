@@ -76,7 +76,7 @@ It is recommended that these reference files are downloaded from the Broad Insti
 
 ### Obtain a copy of this workflow
 
-Clone the repo
+Clone the repository:
 ```sh
 git clone https://github.com/jucosie/snakemake-pgx.git
 ```
