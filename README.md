@@ -1,7 +1,7 @@
 # snakemake-pgx
 
   <p align="center">
-    A Snakemake pipeline to extract PGx information from WES data
+    A Snakemake workflow for extracting PGx information from WES data
     <br />
     <a href="https://github.com/jucosie/snakemake-pgx"><strong>Explore the docs »</strong></a>
     <br />
