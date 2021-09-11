@@ -62,6 +62,10 @@ We have tried to include all the tools necessary for the pipeline to work as wra
 * [GATK4 (2.1.0)](https://github.com/broadinstitute/gatk). GATK4 requires Java 8 to run. The path to the gatk wrapper script must be in the user's ``PATH`` variable.
 * [Picard](https://github.com/broadinstitute/picard/releases). The path to the ``.jar`` file has to be specified in the configuration file. 
 
+In addition, the user needs to download the following reference files: 
+* BWA index of the human genome (GRCh38).
+* Human  
+It is recommended that these reference files are downloaded from the Broad Institute's resource bundle to avoid incompatibilities. The latter file can be obtained from the Optitype repository. 
 ### Installation
 
 1. Clone the repo
