@@ -68,13 +68,16 @@ In addition, the user needs to download the following reference files and indica
 * ``1000G_omni2.5.hg38.vcf.gz``
 * dbSNP in VCF.
 * HLA reference fasta file.
+
+
 It is recommended that these reference files are downloaded from the Broad Institute's [resource bundle](https://console.cloud.google.com/storage/browser/genomics-public-data/resources/broad/hg38/v0;tab=objects?prefix=&forceOnObjectsSortingFiltering=false) to avoid incompatibilities. The latter file can be obtained from the [Optitype repository](https://github.com/FRED-2/OptiType/tree/master/data). 
+
 ### Installation
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/jucosie/snakemake-pgx.git
-   ```
+Clone the repo
+```sh
+git clone https://github.com/jucosie/snakemake-pgx.git
+```
 Or download the ZIP.
 
 
