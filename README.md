@@ -90,7 +90,7 @@ Configure the workflow according to your needs via editing the files in the ``co
 ### Install Snakemake
 Install Snakemake using Conda:
 ```sh
-git clone https://github.com/jucosie/snakemake-pgx.git
+conda create -c bioconda -c conda-forge -n snakemake snakemake
 ```
 For installation details, see the instructions in the [Snakemake documentation](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html).
 
