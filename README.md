@@ -28,11 +28,13 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#obtain a copy of this workflow">Obtain a copy of this workflow</a></li>
+        <li><a href="#configure the workflow">Configure the workflow</a></li>
+        <li><a href="#install snakemake">Install Snakemake</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#example">Usage</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -108,7 +110,7 @@ If you want to run the workflow locally:
 ```sh
 snakemake --use-conda -c <num_cores> all_<rule>
 ```
-Snakemake also offers the possibility to run in different computing environments (Slurm, SGE, etc.). To do so, it is necessary to generate specific configurations following the instructions available [here] (https://github.com/Snakemake-Profiles/doc).
+Snakemake also offers the possibility to run in different computing environments (Slurm, SGE, etc.). To do so, it is necessary to generate specific configurations following the instructions available [here](https://github.com/Snakemake-Profiles/doc).
 
 ## Example
 We provide as an example of the expected results of the pipeline the final reports of two publicly available whole exome samples:
