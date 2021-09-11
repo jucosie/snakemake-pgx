@@ -1,9 +1,9 @@
-# path or URL to sample sheet (TSV format, columns: sample, condition, ...)
+# path to sample sheet (TSV format, columns: sample name,path to fastq1, path to fastq2)
 samples: "../config/samples.tsv"
 
 ref:
   index: "/home/minimind/Escritorio/snakemake_local/GRCh38_index/Homo_sapiens_assembly38.fasta.64"   # the BWA index
-  hla: "/home/minimind/Escritorio/snakemake_local/extra_files/hla_reference_dna.fasta" #Necessary file to preprocess for optitype
+  hla: "/home/minimind/Escritorio/snakemake_local/extra_files/hla_reference_dna.fasta" #File required for optitype preprocessing
   #optitype: "/home/julia/Escritorio/Bioinformatica_II/TFM/snakemake_final/extra_files/config.ini" #config.ini file of otitype to indicate the number of threads
 
 gatk:
@@ -16,7 +16,7 @@ gatk:
 mosdepth:
   bed: "/home/minimind/Escritorio/snakemake_local/extra_files/positions_coverage.bed"
   
-picard: "/home/minimind/Software"
+picard: "/home/minimind/Software" #Path to the Picard .jar file
 
 report:
   variants: "/home/minimind/Escritorio/snakemake_local/config/variants_sorted_0.bed"
