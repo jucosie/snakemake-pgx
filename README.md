@@ -72,7 +72,7 @@ In addition, the user needs to download the following reference files and indica
 
 It is recommended that these reference files are downloaded from the Broad Institute's [resource bundle](https://console.cloud.google.com/storage/browser/genomics-public-data/resources/broad/hg38/v0;tab=objects?prefix=&forceOnObjectsSortingFiltering=false) to avoid incompatibilities. The latter file can be obtained from the [Optitype repository](https://github.com/FRED-2/OptiType/tree/master/data). 
 
-### Installation
+### Obtain a copy of this workflow
 
 Clone the repo
 ```sh
@@ -80,7 +80,19 @@ git clone https://github.com/jucosie/snakemake-pgx.git
 ```
 Or download the ZIP.
 
+### Configure the workflow
+Configure the workflow according to your needs via editing the files in the ``config/`` folder. Adjust ``config.yaml`` with the absolute paths to the reference materials, and ``samples.tsv`` to specify your sample setup. 
 
+* ``positions_coverage.bed`` contains the positions of interest from which the sequencing depth information will be extracted.
+* ``variants_sorted_0.bed`` is an auxiliary file for the script that generates the report.
+* ``VC_positions_chr_sorted_0.bed`` contains the intervals over which Variant Calling shall be applied.
+
+### Install Snakemake
+Install Snakemake using Conda:
+```sh
+git clone https://github.com/jucosie/snakemake-pgx.git
+```
+For installation details, see the instructions in the [Snakemake documentation](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html).
 
 <!-- USAGE EXAMPLES -->
 ## Usage
