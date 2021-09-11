@@ -87,6 +87,8 @@ Configure the workflow according to your needs via editing the files in the ``co
 * ``variants_sorted_0.bed`` is an auxiliary file for the script that generates the report.
 * ``VC_positions_chr_sorted_0.bed`` contains the intervals over which Variant Calling shall be applied.
 
+The resources (CPUs and memory) required for each rule can be adjusted according to the available capacities. 
+
 ### Install Snakemake
 Install Snakemake using Conda:
 ```sh
@@ -96,24 +98,22 @@ For installation details, see the instructions in the [Snakemake documentation](
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+This workflow was designed modularly, so that rules can be executed one at a time or all at the same time (by executing the final rule, ``all_report``). The names of the general rules can be found in the ``Snakefile``.
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+First, we activate the conda environment:
+```sh
+conda create -c bioconda -c conda-forge -n snakemake snakemake
+```
+If you want to run the workflow locally:
+```sh
+snakemake --use-conda -c <num_cores> all_<rule>
+```
+Snakemake also offers the possibility to run in different computing environments (Slurm, SGE, etc.). To do so, it is necessary to generate specific configurations following the instructions available [here] (https://github.com/Snakemake-Profiles/doc).
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
+## Example
+We provide as an example of the expected results of the pipeline the final reports of two publicly available whole exome samples:
+* [NA11829](https://www.internationalgenome.org/data-portal/sample/NA11829) (SRR710128).
+* [NA07000](https://www.internationalgenome.org/data-portal/sample/NA07000) (SRR766039).
 
 
 <!-- LICENSE -->
