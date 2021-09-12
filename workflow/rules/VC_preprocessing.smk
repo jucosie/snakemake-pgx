@@ -17,7 +17,7 @@ rule mark_duplicates_spark:
     	"{params.extra} "
     	"-I {input} "
     	"-O {output.bam} "
-    	"-M {output.metrics} > {log}"
+    	"-M {output.metrics} &> {log}"
 
 rule samtools_index:
     input:
@@ -52,7 +52,7 @@ rule gatk_baserecalibratorspark:
     shell:
     	"gatk --java-options '{params.java_opts}' BaseRecalibratorSpark {params.extra} "
     	"-R {input.ref} -I {input.bam} "
-    	"--output {output.recal_table} --known-sites {input.known} > {log}"
+    	"--output {output.recal_table} --known-sites {input.known} &> {log}"
 
 rule gatk_applybqsr_spark:
     input:
@@ -74,4 +74,4 @@ rule gatk_applybqsr_spark:
     	"gatk --java-options '{params.java_opts}' ApplyBQSRSpark {params.extra} "
 	"--reference {input.ref} --input {input.bam} "
 	"--bqsr-recal-file {input.recal_table} "
-	"--output {output.bam} > {log}"
+	"--output {output.bam} &> {log}"
