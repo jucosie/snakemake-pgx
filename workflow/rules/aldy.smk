@@ -9,4 +9,4 @@ rule aldy:
        "../envs/aldy_env.yaml"
    resources: mem_mb=100000
    shell:
-   	"aldy genotype -p illumina -g {wildcards.gene} -o {output.aldy_out} {input.bam}"
+   	"aldy genotype -p illumina -g {wildcards.gene} -o {output.aldy_out} {input.bam} &> {log}"
