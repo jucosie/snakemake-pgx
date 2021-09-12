@@ -10,13 +10,13 @@ gatk:
   fasta: "/home/minimind/Escritorio/snakemake_local/GRCh38/Homo_sapiens_assembly38.fasta"
   dict: "/home/minimind/Escritorio/snakemake_local/GRCh38/Homo_sapiens_assembly38.dict"
   known: "/home/minimind/Escritorio/snakemake_local/extra_files/1000G_omni2.5.hg38.vcf.gz"
-  intervals: "/home/minimind/Escritorio/snakemake_local/config/VC_positions_chr_sorted_0.bed"
+  intervals: "../config/VC_positions_chr_sorted_0.bed"
   dbsnp: "/home/minimind/Escritorio/snakemake_local/dbSNP/Homo_sapiens_assembly38.dbsnp138.vcf"
 
 mosdepth:
-  bed: "/home/minimind/Escritorio/snakemake_local/extra_files/positions_coverage.bed"
+  bed: "../config/positions_coverage.bed"
   
 picard: "/home/minimind/Software" #Path to the Picard .jar file
 
 report:
-  variants: "/home/minimind/Escritorio/snakemake_local/config/variants_sorted_0.bed"
+  variants: "../config/variants_sorted_0.bed"
