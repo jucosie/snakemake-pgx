@@ -14,7 +14,7 @@ rule haplotype_caller:
     shell:
         "gatk --java-options '-Xmx4g' HaplotypeCaller {params.extra} "
         "-R {input.ref} -I {input.bam} "
-        "-ERC BP_RESOLUTION -O {output.gvcf} > {log}"
+        "-ERC BP_RESOLUTION -O {output.gvcf} &> {log}"
         
 rule variant_annotator:
     input:
@@ -30,7 +30,7 @@ rule variant_annotator:
     resources: cpus=4
     shell:
     	"gatk VariantAnnotator -V {input.gvcf} " 
-    	"-O {output.anngvcf} --dbsnp {input.dbsnp} {params.extra} > {log}"
+    	"-O {output.anngvcf} --dbsnp {input.dbsnp} {params.extra} &> {log}"
 
 
 rule genomics_db_import:
@@ -52,7 +52,7 @@ rule genomics_db_import:
     shell:
         "gatk --java-options '{params.java_opts}' GenomicsDBImport {params.extra} "
     	"{params.gvcfs_list} --intervals {params.intervals} "
-    	"{params.db_action} {output.db}"
+    	"{params.db_action} {output.db} &> {log}"
 
 rule genotype_gvcfs:
     input:
@@ -74,7 +74,7 @@ rule genotype_gvcfs:
     	"gatk --java-options '{params.java_opts}' GenotypeGVCFs {params.extra} "
     	"-V gendb://{input.genomicsdb} "
     	"-R {input.ref} "
-    	"-O {output.vcf}"
+    	"-O {output.vcf} &> {log}"
 
 rule select_snps:
     input:
@@ -96,7 +96,7 @@ rule select_snps:
         mem_mb=1024, cpus=4
     shell:
     	"gatk --java-options '{params.java_opts}' SelectVariants -R {input.ref} -V {input.vcf} "
-    	"{params.extra} -O {output.vcf}"
+    	"{params.extra} -O {output.vcf} &> {log}"
 
 rule select_indels:
     input:
@@ -114,7 +114,7 @@ rule select_indels:
         mem_mb=1024, cpus=4
     shell:
         "gatk --java-options '{params.java_opts}' SelectVariants -R {input.ref} -V {input.vcf} "
-        "{params.extra} -O {output.vcf}"
+        "{params.extra} -O {output.vcf} &> {log}"
 
 rule gatk_filter_snps:
     input:
@@ -137,7 +137,7 @@ rule gatk_filter_snps:
         mem_mb=1024, cpus=4
     shell:
         "gatk --java-options '{params.java_opts}' VariantFiltration -R {input.ref} -V {input.vcf} "
-    	"{params.extra} {params.filters} -O {output.vcf}"
+    	"{params.extra} {params.filters} -O {output.vcf} &> {log}"
         
 rule gatk_filter_indels:
     input:
@@ -158,7 +158,7 @@ rule gatk_filter_indels:
         mem_mb=1024, cpus=4
     shell:
         "gatk --java-options '{params.java_opts}' VariantFiltration -R {input.ref} -V {input.vcf} "
-        "{params.extra} {params.filters} -O {output.vcf}"
+        "{params.extra} {params.filters} -O {output.vcf} &> {log}"
 
 rule sort_snps:
     input:
@@ -171,7 +171,7 @@ rule sort_snps:
     threads: 4
     resources: cpus=4
     shell:
-        "java -jar {input.picard}/picard.jar SortVcf -I ./{input.snp} -O ./{output.snp}"
+        "java -jar {input.picard}/picard.jar SortVcf -I ./{input.snp} -O ./{output.snp} &> {log}"
 
 rule sort_indels:
     input:
@@ -184,7 +184,7 @@ rule sort_indels:
     threads: 4
     resources: cpus=4
     shell:
-        "java -jar {input.picard}/picard.jar SortVcf -I ./{input.indel} -O ./{output.indel}"
+        "java -jar {input.picard}/picard.jar SortVcf -I ./{input.indel} -O ./{output.indel} &> {log}"
 
 rule merge_indels_snps:
     input:
@@ -198,4 +198,4 @@ rule merge_indels_snps:
     threads: 4
     resources: cpus=4
     shell:
-        "java -jar {input.picard}/picard.jar MergeVcfs -I ./{input.snp}  -I ./{input.indel} -O ./{output.merged}"
+        "java -jar {input.picard}/picard.jar MergeVcfs -I ./{input.snp}  -I ./{input.indel} -O ./{output.merged} &> {log}"
