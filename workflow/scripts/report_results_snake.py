@@ -579,44 +579,44 @@ def create_df_mult(variants_table):
     return DF_results_mult
 
 def main():
-    print(__doc__)
-    #Get sample name
-    sample = snakemake.params.sample
+    with open(snakemake.log[0], "w") as f:
+        sys.stderr = sys.stdout = f
+        print(__doc__)
+        #Get sample name
+        sample = snakemake.params.sample
     
-    sys.stderr = open(snakemake.log[0], "w")
+        optitype_file = snakemake.input[0]
+        output_vcf= snakemake.input[1]
+        merged_vcf = snakemake.input[2]
+        mosdepth_file = snakemake.input[3]
+        list_files = snakemake.input[4:]
     
-    optitype_file = snakemake.input[0]
-    output_vcf= snakemake.input[1]
-    merged_vcf = snakemake.input[2]
-    mosdepth_file = snakemake.input[3]
-    list_files = snakemake.input[4:]
-    
-    coverage_df = pd.read_csv(mosdepth_file, sep = "\t", header = None)
-    coverage_df.columns = ["Chromosome", "Start", "End", "Gene", "Coverage"]
-    gene_symbols = list(coverage_df["Gene"].unique())
+        coverage_df = pd.read_csv(mosdepth_file, sep = "\t", header = None)
+        coverage_df.columns = ["Chromosome", "Start", "End", "Gene", "Coverage"]
+        gene_symbols = list(coverage_df["Gene"].unique())
 
-    #Read variants file
-    variants_bed = pd.read_csv(snakemake.params.variants, sep="\t")
+    	#Read variants file
+        variants_bed = pd.read_csv(snakemake.params.variants, sep="\t")
 
-    #We also need a subset of the variants_file just with the genes for which we have
-    #called more than one position
-    variants_bed_subset = variants_bed[(variants_bed["gene"] == "RYR1") | \
-        (variants_bed["gene"] == "CACNA1S") | (variants_bed["gene"] == "ITPA")]
-    variants_bed_subset = variants_bed_subset.reset_index(drop=True)
+    	#We also need a subset of the variants_file just with the genes for which we have
+    	#called more than one position
+        variants_bed_subset = variants_bed[(variants_bed["gene"] == "RYR1") | \
+            (variants_bed["gene"] == "CACNA1S") | (variants_bed["gene"] == "ITPA")]
+        variants_bed_subset = variants_bed_subset.reset_index(drop=True)
 
-    df_results = create_df(gene_symbols)
-    df_results_multi = create_df_mult(variants_bed)
-    get_hla_genotype(optitype_file,sample,df_results)
-    extract_SNP_from_merged(merged_vcf, sample,variants_bed, df_results)
-    miss_genes = check_missing_genes(df_results, variants_bed)
-    extract_SNP_from_output(output_vcf, sample, variants_bed, miss_genes, df_results)
-    extract_multipleSNP_from_output(output_vcf, merged_vcf, sample, variants_bed_subset, df_results_multi)
-    assign_aldy_solutions(list_files, df_results, sample)
-    assign_coverage_df_results(mosdepth_file, sample, df_results)
-    assign_coverage_df_multipleSNP(mosdepth_file, variants_bed_subset, sample, df_results_multi)
-    df_results.to_csv(snakemake.output[0], sep ="\t", index_label = "Gene")
-    df_results_multi.to_csv(snakemake.output[1], sep ="\t")
-    
-    print("\n FINISHED!")
+        df_results = create_df(gene_symbols)
+        df_results_multi = create_df_mult(variants_bed)
+        get_hla_genotype(optitype_file,sample,df_results)
+        extract_SNP_from_merged(merged_vcf, sample,variants_bed, df_results)
+        miss_genes = check_missing_genes(df_results, variants_bed)
+        extract_SNP_from_output(output_vcf, sample, variants_bed, miss_genes, df_results)
+        extract_multipleSNP_from_output(output_vcf, merged_vcf, sample, variants_bed_subset, df_results_multi)
+        assign_aldy_solutions(list_files, df_results, sample)
+        assign_coverage_df_results(mosdepth_file, sample, df_results)
+        assign_coverage_df_multipleSNP(mosdepth_file, variants_bed_subset, sample, df_results_multi)
+        df_results.to_csv(snakemake.output[0], sep ="\t", index_label = "Gene")
+        df_results_multi.to_csv(snakemake.output[1], sep ="\t")
+        
+        print("\n FINISHED!")
 if __name__ == '__main__':
     main()
