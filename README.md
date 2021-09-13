@@ -47,7 +47,8 @@
 
 This tool was developed with the aim of providing a unified solution to extract relevant PGx information from a set of specific genes in WES data. It brings together tools for genotyping HLAs (``Optitype``) and haplotyping of pharmacogenes (``Aldy``), together with position-specific variant calling (``GATK4``) and coverage data (``Mosdepth``). 
 
-<a href="url"><img src="https://github.com/jucosie/snakemake-pgx/blob/main/pipeline.png" align="left" height="800" width="800" ></a>
+<img src="https://github.com/jucosie/snakemake-pgx/blob/main/pipeline.png" align="left" height="800" width="800" >
+
 
 ### Built With
 
