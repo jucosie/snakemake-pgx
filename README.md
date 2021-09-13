@@ -61,10 +61,10 @@ To get a local copy up and running follow these simple steps.
 ### Prerequisites
 
 We have tried to include all the tools necessary for the pipeline to work as wrappers, or via Conda envirotnments. Even so, it is necessary to install locally: 
-* [GATK4 (2.1.0)](https://github.com/broadinstitute/gatk). GATK4 requires Java 8 to run. The path to the gatk wrapper script must be in the user's ``PATH`` variable.
+* [GATK4 (2.1.0)](https://github.com/broadinstitute/gatk). GATK4 requires Java 8 to run. The path to the GATK wrapper script must be in the user's ``PATH`` variable.
 * [Picard](https://github.com/broadinstitute/picard/releases). The path to the ``.jar`` file has to be specified in the configuration file. 
 
-In addition, the user needs to download the following reference files and indicate their path in the configuration file.: 
+In addition, the user needs to download the following reference files and indicate their path in the configuration file: 
 * BWA index of the human genome (GRCh38).
 * Fasta sequence of the human genome (GRCh38), accompanied by the ``.dict`` and``.fai`` files.
 * ``1000G_omni2.5.hg38.vcf.gz``
