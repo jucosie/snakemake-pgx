@@ -112,6 +112,8 @@ snakemake --use-conda -c <num_cores> all_<rule>
 ```
 Snakemake also offers the possibility to run in different computing environments (Slurm, SGE, etc.). To do so, it is necessary to generate specific configurations following the instructions available [here](https://github.com/Snakemake-Profiles/doc).
 
+NOTE: Be careful, if you execute the Variant Calling rule more than once, you must delete the directory that creates the GenomicsDB command before each execution.
+
 ## Example
 We provide as an example of the expected results of the pipeline the final reports of two publicly available whole exome samples:
 * [NA11829](https://www.internationalgenome.org/data-portal/sample/NA11829) (SRR710128).
