@@ -118,7 +118,7 @@ Snakemake also offers the possibility to run in different computing environments
 NOTE: Be careful, if you execute the Variant Calling rule more than once, you must delete the directory that creates the GenomicsDB command before each execution.
 
 ## Example
-We provide as an example of the expected results of the pipeline the final reports of two publicly available whole exome samples:
+#We provide as an example of the expected results of the pipeline the final reports of two publicly available whole exome samples:
 * [NA11829](https://www.internationalgenome.org/data-portal/sample/NA11829) (SRR710128).
 * [NA07000](https://www.internationalgenome.org/data-portal/sample/NA07000) (SRR766039).
 
