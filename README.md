@@ -48,7 +48,7 @@
 This tool was developed with the aim of providing a unified solution to extract relevant PGx information from a set of specific genes in WES data. It brings together tools for genotyping HLAs (``Optitype``) and haplotyping of pharmacogenes (``Aldy``), together with position-specific variant calling (``GATK4``) and coverage data (``Mosdepth``). 
 
 <p align="center">
-  <img src="https://github.com/jucosie/snakemake-pgx/blob/main/workflow_image.png" class="center" height="750" width="750" >
+  <img src="https://github.com/jucosie/snakemake-pgx/blob/main/workflow_img.png" class="center" height="750" width="750" >
 </p>
 
 ### Built With
@@ -118,7 +118,7 @@ Snakemake also offers the possibility to run in different computing environments
 NOTE: Be careful, if you execute the Variant Calling rule more than once, you must delete the directory that creates the GenomicsDB command before each execution.
 
 ## Example
-#We provide as an example of the expected results of the pipeline the final reports of two publicly available whole exome samples:
+We provide as an example of the expected results of the pipeline the final reports of two publicly available whole exome samples:
 * [NA11829](https://www.internationalgenome.org/data-portal/sample/NA11829) (SRR710128).
 * [NA07000](https://www.internationalgenome.org/data-portal/sample/NA07000) (SRR766039).
 
